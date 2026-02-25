@@ -55,7 +55,7 @@ class locker{
     }
     /*½âËø*/
     bool unlock(){
-        pthread_mutex_unlock(&m_mutex) == 0;
+        return pthread_mutex_unlock(&m_mutex) == 0;
     }
 
     private:

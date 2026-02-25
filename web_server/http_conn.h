@@ -12,6 +12,9 @@
 #include<fcntl.h>
 #include<sys/epoll.h>
 #include<string.h>
+#include<sys/mman.h>
+#include<sys/uio.h>
+#include<stdarg.h>
 #include<errno.h>
 
 class http_conn{
@@ -72,6 +75,7 @@ class http_conn{
         bool content_length(int content_length);
         bool add_linger();
         bool add_blank_line();
+        bool add_content_length(int content_length);
 
     public:
         /*所有socket上的事件都被注册到同一个epoll内核事件表中,所以将epoll文件描述符置为静态的*/
